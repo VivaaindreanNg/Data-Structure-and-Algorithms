@@ -5,7 +5,9 @@ INPUT = """\
 AABAACAADAABAABA
 """
 
+pattern = "AABA"
+
 output = [0, 9, 12]
 
 def test1() -> None:
-    assert solve(INPUT) == output
+    assert solve(INPUT, pattern) == output
