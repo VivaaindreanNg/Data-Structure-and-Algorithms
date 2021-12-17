@@ -3,6 +3,7 @@ Contains list of algorithms/DS for pattern searching, graphs, trees, DP (dynamic
 
 
 The format for sub-directories are as follows:
+```
 .
 ├── algorithms/
 │ ├── __init__.py
@@ -12,7 +13,7 @@ The format for sub-directories are as follows:
 │ └── tests/
 │     ├── __init__.py
 │     └── test_p1_pattern_searching.py
-
+```
 
 In the above's case, *p1* represents a particular unique problem(pattern searching, could be graph or tree based algo) that is stored
 in tests/ subdir. 
