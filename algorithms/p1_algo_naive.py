@@ -6,8 +6,10 @@ def solve(input_str: str, pattern: str) -> list:
     input char in input_str with size n. 
     The length of the window/pattern is m, assuming m <= n.
 
-    Time complexity:-
     Number of comparison needed to be done: O(n-m+1)
+    Within each comparison, need to compare every single character in m.
+
+    Time Complexity = O(m*(n-m+1))
     """
     output = []
 
