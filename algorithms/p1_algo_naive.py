@@ -6,7 +6,8 @@ def solve(input_str: str, pattern: str) -> list:
     input char in input_str with size n. 
     The length of the window/pattern is m, assuming m <= n.
 
-    Time complexity: O(n*m)
+    Time complexity:-
+    Number of comparison needed to be done: O(n-m+1)
     """
     output = []
 
