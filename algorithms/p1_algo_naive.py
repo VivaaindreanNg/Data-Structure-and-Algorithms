@@ -7,27 +7,21 @@ def solve(input_str: str, pattern: str) -> list:
     The length of the window/pattern is m, assuming m <= n.
 
     Number of comparison needed to be done: O(n-m+1)
-    Within each comparison, need to compare every single character in m.
 
-    Time Complexity = O(m*(n-m+1))
+    Time Complexity = O(n-m+1)
     """
     output = []
 
     window_length = len(pattern)
     input_str = input_str.rstrip().lstrip()
 
-    for idx, v in enumerate(input_str):
+    for idx, _ in enumerate(input_str):
         start = idx 
         end = idx+window_length
 
-        tmp = ""
-
         if end <= len(input_str):
-            for x in range(start, end):
-                tmp += input_str[x]
-
-        if tmp == pattern:
-            output.append(start)
+            if pattern == input_str[start: end]:
+                output.append(start)
 
     return output 
 
