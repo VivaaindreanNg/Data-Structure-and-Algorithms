@@ -1,10 +1,8 @@
 from ..p1_algo_naive import solve as solve1
-from ..p1_algo_optimized_naive import solve as solve2
+from ..p1_algo_kmp import solve as solve2
 
 # GeeksForGeeks: https://www.geeksforgeeks.org/algorithms-gq/PATTERN_1-searching/
-INPUT_1 = """\
-AABAACAADAABAABA
-"""
+INPUT_1 = """AABAACAADAABAABA"""
 PATTERN_1 = "AABA"
 OUTPUT_1 = [0, 9, 12]
 
