@@ -9,14 +9,21 @@ class Stack:
         return str([i for i in self.input_list])
 
     def push(self, element: Any) -> list:
+        """
+        Returns the list after pushing in an element.
+        """
         pass 
 
-    def pop(self) -> Any:
+    def pop(self) -> list:
+        """
+        Returns the list after popping off the top element.
+        """
         pass
 
     def get_top(self) -> Any:
         """
-        Returns top of the element within the stack.
+        Returns top of the element within the stack without
+        actually popping it off.
         """
         pass
 
