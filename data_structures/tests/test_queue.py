@@ -7,7 +7,7 @@ class TestQueue(unittest.TestCase):
     def setUp(self) -> None:
         self.queue = Queue()
 
-    def test_enqueue(self) -> None:
+    def test_enqueue_and_is_empty(self) -> None:
         self.assertTrue(self.queue.is_empty())
 
         self.queue.enqueue("A")
