@@ -24,7 +24,7 @@ that particular *p1* problem.
 
 
 ## Running test cases
-To run a particular test module under subdirs (i.e.: To run a unittest in ./data_structures/tests/test_xxx.py), run the following command in root:
+To run a particular test module under subdirs (i.e.: To run a unittest in ./data_structures/tests/test_xxx.py), run the following command in root of this repo:
 ```
 $ python -m unittest data_structures.tests.test_xxx
 ```
