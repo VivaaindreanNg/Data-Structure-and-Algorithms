@@ -34,7 +34,7 @@ class Stack:
         return True if len(self.input_list) == 0 else False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     stack = Stack([])
 
     print(f"Stack: {stack}")
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     print(f"Push 3: {stack.push(3)}\n")
 
     print(f"Check if stack is empty: {stack.is_empty()}")
-    
+
     print(f"Get top of stack: {stack.get_top()}")
     print(f"Pop: {stack.pop()}")
     print(f"Pop: {stack.pop()}")

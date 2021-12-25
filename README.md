@@ -16,7 +16,7 @@ The format for sub-directories are as follows:
 ```
 
 In the above's case, *p1* represents a particular unique problem(pattern searching, could be graph or tree based algo) that is stored
-in tests/ subdir. 
+in tests/ subdir.
 
 
 While in algorithms/ subdir, it contains all the possible solutions to
