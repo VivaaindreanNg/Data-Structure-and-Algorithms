@@ -5,9 +5,6 @@ class Stack:
     def __init__(self) -> None:
         self.input_list = []
 
-    def __get__(self) -> list:
-        return self.input_list
-
     def push(self, element: Any) -> list:
         """
         Returns the list after pushing in an element.
