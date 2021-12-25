@@ -4,38 +4,37 @@ from ..src.stack import Stack
 
 
 class TestStack(unittest.TestCase):
-    def test_push(self) -> None:
-        stack = Stack()
-        self.assertEqual(len(stack.input_list), 0)
+    def setUp(self) -> None:
+        self.stack = Stack()
 
-        stack.push(1)
-        stack.push(2)
-        self.assertEqual(len(stack.input_list), 2)
+    def test_push(self) -> None:
+        self.assertEqual(len(self.stack.input_list), 0)
+
+        self.stack.push(1)
+        self.stack.push(2)
+        self.assertEqual(len(self.stack.input_list), 2)
 
     def test_pop(self) -> None:
-        stack = Stack()
-        stack.push(1)
-        stack.push(2)
-        stack.push(3)
-        self.assertEqual(len(stack.input_list), 3)
+        self.stack.push(1)
+        self.stack.push(2)
+        self.stack.push(3)
+        self.assertEqual(len(self.stack.input_list), 3)
 
-        stack.pop()
-        stack.pop()
-        self.assertEqual(len(stack.input_list), 1)
+        self.stack.pop()
+        self.stack.pop()
+        self.assertEqual(len(self.stack.input_list), 1)
 
     def test_get_top(self) -> None:
-        stack = Stack()
-        stack.push(1)
-        stack.push(2)
-        stack.push(3)
-        self.assertEqual(stack.get_top(), 3)
+        self.stack.push(1)
+        self.stack.push(2)
+        self.stack.push(3)
+        self.assertEqual(self.stack.get_top(), 3)
 
     def test_is_empty(self) -> None:
-        stack = Stack()
-        stack.push(1)
-        stack.push(2)
-        self.assertFalse(stack.is_empty())
+        self.stack.push(1)
+        self.stack.push(2)
+        self.assertFalse(self.stack.is_empty())
 
-        stack.pop()
-        stack.pop()
-        self.assertTrue(stack.is_empty())
+        self.stack.pop()
+        self.stack.pop()
+        self.assertTrue(self.stack.is_empty())
