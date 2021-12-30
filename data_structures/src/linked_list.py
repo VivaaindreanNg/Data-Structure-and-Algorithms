@@ -38,10 +38,25 @@ class LinkedList:
 
     def insert_first(self, node_data: dict) -> None:
         """
-        TODO: Insert a node at the beginning of the list.
+        Insert a node at the beginning of the list.
+
+        Pseudocode:
+        function insertFirst(Node node)
+            if ll.firstNode is null:
+                ll.firstNode := node
+            else:
+                temp := ll.firstNode
+                ll.firstNode := node
+                ll.firstNode.next := temp
 
         Time Complexity: O(1)
         """
+        if ll.first_node is None:
+            ll.first_node = Node(node_data)
+        else:
+            temp = ll.first_node
+            ll.first_node = Node(node_data)
+            ll.first_node.next = temp
 
     def insert(self, new_node_data: dict) -> None:
         """
@@ -160,8 +175,8 @@ if __name__ == "__main__":
     node3_data = {"coefficient": 78, "variable": "", "exponent": 0}
 
     ll = LinkedList()
-    ll.insert(node1_data)
     ll.insert(node2_data)
     ll.insert(node3_data)
+    ll.insert_first(node1_data)
 
     print(ll)
