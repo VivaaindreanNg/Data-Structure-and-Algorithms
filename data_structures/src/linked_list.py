@@ -29,9 +29,11 @@ class LinkedList:
 
     def __init__(self) -> None:
         """
-        When initialized LL, the head is initially points to None/null
+        When initialized LL, the head is initially points to None/null.
+
+        Also. list itself keeps track of the first node.
         """
-        self.node = None
+        self.first_node = None
         self.head = None
 
     def insert_first(self, node_data: dict) -> None:
@@ -40,37 +42,36 @@ class LinkedList:
 
         Time Complexity: O(1)
         """
-        self.node = Node(node_data)
-        self.next = None
 
-        # Links the head pointer to the newly-created first Node
-        self.head = self.node
-
-    def insert_after(self, node_data: dict, new_node_data: dict) -> None:
+    def insert(self, new_node_data: dict) -> None:
         """
-        TODO: Insert a node right after given node.
+        Insert a node one after the other within the list (while traversing).
 
         ```
         Pseudocode:
-        function insertAfter(Node node, Node newNode)
-            newNode.next := node.next
-            node.next    := newNode
+        function insert(Node newNode)
+            if ll.firstNode is null:
+                ll.firstNode := newNode
+            else:
+                currNode := ll.firstNode
+                while currNode.next not null:
+                    currNode := currNode.next
+
+                if currNode.next is null:
+                    currNode.next := newNode
         ```
 
         Time Complexity: O(n)
         """
-        new_node = Node(new_node_data)
-        curr_node = None
+        if ll.first_node is None:
+            ll.first_node = Node(new_node_data)
+        else:
+            curr_node = self.first_node
+            while curr_node.next is not None:
+                curr_node = curr_node.next
 
-        # Traverse through the whole LL to filter out node_data
-        while self.node is not None:
-            if self.node.data == node_data:
-                curr_node = self.node
-                break
-            self.node = self.node.next
-
-        new_node.next = curr_node.next
-        curr_node.next = new_node
+            if curr_node.next is None:
+                curr_node.next = Node(new_node_data)
 
     def delete_first(self) -> None:
         """
@@ -118,7 +119,7 @@ class LinkedList:
 
     def __str__(self) -> str:
         """
-        TODO: Display all the nodes in Linked List.
+        Display all the nodes in Linked List.
 
         Traversal of a singly linked list is simple,
         beginning at the first node and following each next
@@ -126,38 +127,41 @@ class LinkedList:
 
         ```
         Pseudocode:
-        while node not null
-            (do something with node.data)
-            node := node.next
+        currNode := ll.firstNode
+        while currNode not null
+            (do something with currNode.data)
+            currNode := currNode.next
         ```
 
         Time Complexity: O(n)
         """
 
         output = ""
-        while self.node is not None:
-            coeff = self.node.data["coefficient"]
-            var = self.node.data["variable"]
-            exp = self.node.data["exponent"]
+        curr_node = self.first_node
+
+        while curr_node is not None:
+            coeff = curr_node.data["coefficient"]
+            var = curr_node.data["variable"]
+            exp = curr_node.data["exponent"]
             output += f"{coeff}{var}^{exp} "
 
-            if self.node.next is not None:
+            if curr_node.next is not None:
                 output += "+ "
 
             # If there's next (Node), move on to it.
-            self.node = self.node.next
+            curr_node = curr_node.next
 
         return output
 
 
 if __name__ == "__main__":
-    ll = LinkedList()
-
     node1_data = {"coefficient": 6, "variable": "x", "exponent": 3}
     node2_data = {"coefficient": 10, "variable": "x", "exponent": 2}
     node3_data = {"coefficient": 78, "variable": "", "exponent": 0}
 
-    ll.insert_first(node1_data)
-    ll.insert_after(node1_data, node2_data)
-    # ll.insert_after(node2_data, node3_data)
+    ll = LinkedList()
+    ll.insert(node1_data)
+    ll.insert(node2_data)
+    ll.insert(node3_data)
+
     print(ll)
