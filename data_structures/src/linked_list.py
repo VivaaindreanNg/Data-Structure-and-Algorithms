@@ -21,10 +21,10 @@ class Node:
 class LinkedList:
     """
     Using LL to perform polynomial calculation. Consider:\n
-    P(x) = 6x^3 + 10x^2\n
+    P(x) = 6x^3 + 10x^2 + 78\n
     Q(x) = 4x^2 + 2x^1
 
-    P(x) + Q(x) = 6x^3 + 14x^2 + 2x^1
+    P(x) + Q(x) = 6x^3 + 14x^2 + 2x^1 + 78
     """
 
     def __init__(self) -> None:
@@ -46,7 +46,7 @@ class LinkedList:
         # Links the head pointer to the newly-created first Node
         self.head = self.node
 
-    def insert_after(self, node: Node, new_node_data: dict) -> None:
+    def insert_after(self, node_data: dict, new_node_data: dict) -> None:
         """
         TODO: Insert a node right after given node.
 
@@ -59,7 +59,18 @@ class LinkedList:
 
         Time Complexity: O(n)
         """
-        pass
+        new_node = Node(new_node_data)
+        curr_node = None
+
+        # Traverse through the whole LL to filter out node_data
+        while self.node is not None:
+            if self.node.data == node_data:
+                curr_node = self.node
+                break
+            self.node = self.node.next
+
+        new_node.next = curr_node.next
+        curr_node.next = new_node
 
     def delete_first(self) -> None:
         """
@@ -143,5 +154,10 @@ if __name__ == "__main__":
     ll = LinkedList()
 
     node1_data = {"coefficient": 6, "variable": "x", "exponent": 3}
+    node2_data = {"coefficient": 10, "variable": "x", "exponent": 2}
+    node3_data = {"coefficient": 78, "variable": "", "exponent": 0}
+
     ll.insert_first(node1_data)
+    ll.insert_after(node1_data, node2_data)
+    # ll.insert_after(node2_data, node3_data)
     print(ll)
