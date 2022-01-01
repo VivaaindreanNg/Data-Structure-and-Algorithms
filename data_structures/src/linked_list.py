@@ -1,4 +1,4 @@
-# TODO: Application: Polynomial calculation
+# Application: Polynomial calculation
 # https://www.javatpoint.com/application-of-linked-list
 
 
@@ -87,23 +87,23 @@ class LinkedList:
 
     def delete_first(self) -> None:
         """
-        TODO: Delete a node at the beginning of the list.
+        Delete a node at the beginning of the list.
 
         ```
         Pseudocode:
         function removeBeginning(List list)
-            obsoleteNode := list.firstNode
-            list.firstNode := list.firstNode.next // point past deleted node
-            destroy obsoleteNode
+            if list.firstNode not null:
+                list.firstNode := list.firstNode.next
         ```
 
         Time Complexity: O(1)
         """
-        pass
+        if self.first_node is not None:
+            self.first_node = self.first_node.next
 
-    def delete(self) -> None:
+    def delete(self, pos: int) -> None:
         """
-        TODO: Delete a given node.
+        TODO: Delete a given node based on index as position.
 
         ```
         Pseudocode:
@@ -199,3 +199,9 @@ if __name__ == "__main__":
 
     print(f"Get by post {0}: {ll.get_by(0).data}")
     print(f"Get by post {2}: {ll.get_by(2).data}")
+
+    ll.insert_first({"coefficient": 999, "variable": "xyz", "exponent": 999})
+    print(f"\nAdded first node at P(x): {ll}")
+
+    ll.delete_first()
+    print(f"Deleted first node P(x): {ll}")
