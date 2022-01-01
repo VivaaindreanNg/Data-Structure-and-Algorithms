@@ -29,12 +29,9 @@ class LinkedList:
 
     def __init__(self) -> None:
         """
-        When initialized LL, the head is initially points to None/null.
-
-        Also. list itself keeps track of the first node.
+        When initialized LL, the first node is initially points to None/null.
         """
         self.first_node = None
-        self.head = None
 
     def insert_first(self, node_data: dict) -> None:
         """
@@ -124,13 +121,32 @@ class LinkedList:
         """
         pass
 
-    def get_by(self) -> Node:
+    def get_by(self, pos: int) -> Node:
         """
-        TODO: Get a node based on a given key.
+        Get a node based on position of node in the list.
+
+        ```
+        Pseudocode:
+        counter := 0
+        currNode := ll.firstNode
+        while currNode != null:
+            if counter != position:
+                counter := counter + 1
+                currNode := currNode.next
+            else:
+                return currNode
+        ```
 
         Time Complexity: O(n)
         """
-        pass
+        counter = 0
+        curr_node = self.first_node
+        while curr_node is not None:
+            if counter != pos:
+                counter += 1
+                curr_node = curr_node.next
+            else:
+                return curr_node
 
     def __str__(self) -> str:
         """
@@ -179,4 +195,7 @@ if __name__ == "__main__":
     ll.insert(node3_data)
     ll.insert_first(node1_data)
 
-    print(ll)
+    print(f"\nP(x): {ll}")
+
+    print(f"Get by post {0}: {ll.get_by(0).data}")
+    print(f"Get by post {2}: {ll.get_by(2).data}")
