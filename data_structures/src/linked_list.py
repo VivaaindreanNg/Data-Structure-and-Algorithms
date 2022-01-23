@@ -101,18 +101,19 @@ class LinkedList:
         if self.first_node is not None:
             self.first_node = self.first_node.next
 
-    def delete(self, pos: int) -> None:
+    def delete_by_node(self, deleted_node_data: dict) -> None:
         """
-        TODO: Delete a given node based on index as position.
+        TODO: Delete a given node based on given Node's data.
 
         ```
         Pseudocode:
         function remove(Node node)
+            currNode := ll.firstNode
             while currNode not null:
-                if currNode == node:
-                    obsoleteNode := currNode.next
+                if currNode.data == node.data:
+                    currNode := currNode.next
                     currNode.next := currNode.next.next
-                    destroy obsoleteNode
+                    break
                 else:
                     currNode := currNode.next
         ```
@@ -205,3 +206,10 @@ if __name__ == "__main__":
 
     ll.delete_first()
     print(f"Deleted first node P(x): {ll}")
+
+    data_to_delete = {"coefficient": 123, "variable": "xyz", "exponent": 123}
+    ll.insert(data_to_delete)
+    print(f"\nAdded new node at P(x): {ll}")
+
+    ll.delete_by_node(data_to_delete)
+    print(f"Deleted target node P(x): {ll}")
